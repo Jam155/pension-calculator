@@ -9,6 +9,9 @@ body {
     border: 1px solid black;
     padding: 1em;
     vertical-align: top; }
+  body .view #chart {
+    max-height: 400px;
+    width: 400px; }
   body .form input, body .form select {
     display: block;
     width: 100%; }
