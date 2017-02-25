@@ -1,5 +1,16 @@
 body {
   font: 100% Helvetica, sans-serif;
   color: #333; }
+  body * {
+    box-sizing: border-box; }
+  body .form, body .view {
+    display: inline-block;
+    width: 50%;
+    border: 1px solid black;
+    padding: 1em;
+    vertical-align: top; }
+  body .form input, body .form select {
+    display: block;
+    width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

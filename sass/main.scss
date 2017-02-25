@@ -6,4 +6,31 @@ body {
 	font: 100% $font-stack;
 	color: $primary-color;
 
+	* {
+
+		box-sizing: border-box;
+
+	}
+
+	.form, .view {
+
+		display: inline-block;
+		width: 50%;
+		border: 1px solid black;
+		padding: 1em;
+		vertical-align: top;
+
+	}
+
+	.form {
+
+		input, select {
+
+			display: block;
+			width: 100%;
+
+		}
+
+	}
+
 }
