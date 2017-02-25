@@ -4,6 +4,39 @@
 			Pension Calculator
 		</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script src="node_modules/jquery/dist/jquery.js"></script>
+		<script src="node_modules/chart.js/dist/Chart.bundle.js"></script>
+		<script>
+
+			jQuery(document).ready(function() {
+				var ctx = document.getElementById("chart");
+				console.log(ctx);
+				var pensionChart = new Chart(ctx, {
+
+					type: 'line',
+					data: {
+
+						labels: ["5", "10", "15", "20", "25", "30"],
+						datasets: [
+
+							{
+
+								label: "Pension Estimate",
+								fill: false,
+								lineTension: 0.1,
+								data: [200, 200, 200, 200, 200, 200],
+
+							}
+
+						]
+
+					}
+
+				});
+			})
+			
+
+		</script>
 
 	</head>
 
@@ -51,6 +84,8 @@
 			--><div class="view">
 
 				<h2>Pension View</h2>
+
+				<canvas id="chart" width="400px" />
 
 			</div>
 
