@@ -1,3 +1,4 @@
+<?php require_once('functions.php'); ?>
 <html>
 	<head>
 		<title>
@@ -19,32 +20,32 @@
 			<div class="form">
 
 				<h2>Pension Details</h2>
-
+				
 				<form>
 
 					First Name:<br />
-					<input type="text" name="firstname" />
+					<input type="text" name="firstname" value="<?php echo getFirstName(); ?>" />
 					Last Name: <br />
-					<input type="text" name="lastname" />
+					<input type="text" name="lastname" value="<?php echo getSurname(); ?>" />
 					DOB: <br />
-					<input type="date" name="dob" value="1991-12-17"/>
+					<input type="date" name="dob" value="<?php echo getDOB(); ?>"/>
 					Salary: <br />
-					<input type="number" name="salary" step="1" min="0" value="23000" />
+					<input type="number" name="salary" step="1" min="0" value="<?php echo getSalary(); ?>" />
 					Retirement Age: <br />
-					<input type="number" name="retirement-age" min="55" step="1" value="55"/>
+					<input type="number" name="retirement-age" min="55" step="1" value="<?php echo getRetirementAge(); ?>"/>
 					Tax Bracket: <br />
 					<select name="tax">
 						<option value="basic">Basic Rate</option>
 						<option value="higher">Higher Rate</option>
 					</select>
 					Initial Amount:
-					<input type="number" name="initial" step="0.01" min="0" value="1000.00">
+					<input type="number" name="initial" step="0.01" min="0" value="<?php echo getInitial(); ?>">
 					Est. Growth: <br />
-					<input type="number" name="interest" step="0.01" value="5.50">
+					<input type="number" name="interest" step="0.01" value="<?php echo getInterest(); ?>">
 					Employer Contributions: <br />
-					<input type="number" name="employer" step="0.01" min="0" value="1.00">
+					<input type="number" name="employer" step="0.01" min="0" value="<?php echo getEmployerContributions(); ?>">
 					Monthly Contributions: <br />
-					<input type="number" name="monthly" step="0.01" min="0" value="300.00">
+					<input type="number" name="monthly" step="0.01" min="0" value="<?php echo getMonthly(); ?>">
 					<input type="submit" name="Save Changes" />
 
 
