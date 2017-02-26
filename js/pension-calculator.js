@@ -39,13 +39,24 @@ var getComPrinciple = function(years) {
 
 }
 
-var getMonthlyAmount = function() {
+var getMonthlyAmount = function(date) {
 
 	var monthlyAmount = jQuery('input[name=monthly]').val();
+	var startDate = jQuery('input[name=start]').val();
+	startDate = new Date(startDate);
+
 	var taxRebate = getTaxRebate();
 	var empCont = getEmployerContributions();
 
-	monthlyAmount = (monthlyAmount / (1 - taxRebate)) + empCont;
+	if (date > startDate) {
+
+		monthlyAmount = (monthlyAmount / (1 - taxRebate)) + empCont;
+
+	} else {
+
+		monthlyAmount = 0;
+
+	}
 
 	return monthlyAmount;
 
@@ -103,6 +114,11 @@ var getInterestRate = function() {
 
 var getValue = function(years, monthlyAmount) {
 
+	var today = new Date();
+	var currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+	console.log(currentDate);
+	var timestamp = (new Date()).getTime();
+	console.log(timestamp);
 	var months = years * 12;
 	var amount = 0; //getInitialAmount();
 	var empCont = getEmployerContributions();
@@ -112,7 +128,8 @@ var getValue = function(years, monthlyAmount) {
 
 	for (var i = 0; i < months; i++) {
 
-		amount = parseFloat(amount * getMonthlyInterestRate()) + parseFloat(getMonthlyAmount());
+		currentDate.setMonth(currentDate.getMonth() + 1);
+		amount = parseFloat(amount * getMonthlyInterestRate()) + parseFloat(getMonthlyAmount(currentDate));
 
 	}
 
