@@ -21,6 +21,8 @@
 
 				<h2>Pension Details</h2>
 
+				<?php var_dump($_REQUEST); ?>
+
 				<form>
 
 					First Name:<br />
@@ -45,7 +47,10 @@
 					Employer Contributions: <br />
 					<input type="number" name="employer" step="0.01" min="0" value="<?php echo getEmployerContributions(); ?>">
 					Monthly Contributions: <br />
-					<input type="number" name="monthly" step="0.01" min="0" value="<?php echo getMonthly(); ?>">
+					<div class="monthly">
+						<input type="date" name="start" value="<?php echo getStart(); ?>"/><!--
+						--><input type="number" name="monthly" step="0.01" min="0" value="<?php echo getMonthly(); ?>">
+					</div>
 					<input type="submit" name="Save Changes" />
 					<input type="hidden" name="age" value="<?php echo calculateAge(); ?>" />
 

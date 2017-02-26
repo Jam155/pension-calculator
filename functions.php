@@ -92,6 +92,12 @@
 
 	}
 
+	function getStart() {
+
+		return _getValue("start");
+
+	}
+
 	function getMonthly() {
 
 		return _getValue("monthly");

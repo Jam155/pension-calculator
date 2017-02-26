@@ -15,5 +15,8 @@ body {
   body .form input, body .form select {
     display: block;
     width: 100%; }
+  body .form .monthly input {
+    display: inline-block;
+    width: 50%; }
 
 /*# sourceMappingURL=main.css.map */
