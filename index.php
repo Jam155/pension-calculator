@@ -21,8 +21,6 @@
 
 				<h2>Pension Details</h2>
 
-				<?php var_dump($_REQUEST); ?>
-
 				<form>
 
 					First Name:<br />
