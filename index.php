@@ -20,7 +20,7 @@
 			<div class="form">
 
 				<h2>Pension Details</h2>
-				
+
 				<form>
 
 					First Name:<br />
@@ -47,6 +47,7 @@
 					Monthly Contributions: <br />
 					<input type="number" name="monthly" step="0.01" min="0" value="<?php echo getMonthly(); ?>">
 					<input type="submit" name="Save Changes" />
+					<input type="hidden" name="age" value="<?php echo calculateAge(); ?>" />
 
 
 				</form>

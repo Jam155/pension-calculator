@@ -1,5 +1,29 @@
 <?php
 
+	function calculateAge() {
+
+		$age = 0;
+		$dob = getDOB();
+
+		if ($dob !== "") {
+
+			$dob_date = new DateTime($dob);
+			$today = new DateTime();
+
+			$dob_timestamp = $dob_date->getTimestamp();
+			$today = $today->getTimestamp();
+
+			$diff = $today - $dob_timestamp;
+
+			$age = date('Y', $diff);
+			$age = $age - 1970;
+
+		}
+
+		return $age;
+
+	}
+
 	function _getValue($field) {
 
 		$value = "";
