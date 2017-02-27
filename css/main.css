@@ -15,7 +15,7 @@ body {
   body .form input, body .form select {
     display: block;
     width: 100%; }
-  body .form .monthly input {
+  body .form .contribution input {
     display: inline-block;
     width: 50%; }
 
