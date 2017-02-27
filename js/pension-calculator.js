@@ -41,8 +41,14 @@ var getComPrinciple = function(years) {
 
 var getMonthlyAmount = function(date) {
 
-	var monthlyAmount = jQuery('input[name=monthly]').val();
-	var startDate = jQuery('input[name=start]').val();
+	var contributions = jQuery('.contribution');
+
+	console.log(contributions);
+
+	var monthlyAmount = jQuery(contributions[0]).find('input[name="contributions[0][monthly]"]').val();
+	var startDate = jQuery(contributions[0]).find('input[name="contributions[0][date]"]').val();
+
+	console.log(monthlyAmount);
 	startDate = new Date(startDate);
 
 	var taxRebate = getTaxRebate();

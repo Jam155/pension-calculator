@@ -1,5 +1,35 @@
 <?php
 
+	function getContributionInputs() {
+
+		$contributions = $_REQUEST['contributions'];
+
+		if (sizeof($contributions) > 0) {
+
+			foreach($_REQUEST['contributions'] as $i => $contribution): ?>
+
+				<div class="contribution">
+
+					<input type="date" name="contributions[<?php echo $i; ?>][date]" value="<?php echo $contribution['date'] ?>"/><!--
+					--><input type="number" name="contributions[<?php echo $i; ?>][monthly]" value="<?php echo $contribution['monthly']; ?>" />
+
+				</div>
+
+			<?php endforeach; 
+
+		} else { ?>
+
+			<div class="contribution">
+
+				<input type="date" name="contributions[0][date]" value="" /><!--
+				--><input type="number" name="contributions[0][monthly]" value="" />
+
+			</div>
+
+		<? }
+
+	}
+
 	function calculateAge() {
 
 		$age = 0;
@@ -92,15 +122,31 @@
 
 	}
 
-	function getStart() {
+	function getStart($i) {
 
-		return _getValue("start");
+		$start = "";
+
+		if (isset($_REQUEST["start"][$i])) {
+
+			$start = $_REQUEST["start"][$i];
+
+		}
+
+		return $start;
 
 	}
 
-	function getMonthly() {
+	function getMonthly($i) {
 
-		return _getValue("monthly");
+		$monthly = "";
+
+		if (isset($_REQUEST["monthly"][$i])) {
+
+			$monthly = $_REQUEST["monthly"][$i];
+
+		}
+
+		return $monthly;
 
 	}
 
