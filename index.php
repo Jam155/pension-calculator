@@ -47,7 +47,10 @@
 					Employer Contributions: <br />
 					<input type="number" name="employer" step="0.01" min="0" value="<?php echo getEmployerContributions(); ?>">
 					Monthly Contributions: <br />
-					<?php getContributionInputs(); ?>
+					<div class="contributions">
+						<?php getContributionInputs(); ?>
+					</div>
+					<button id="addContribution">Add Contribution</button>
 					<input type="submit" name="Save Changes" />
 					<input type="hidden" name="age" value="<?php echo calculateAge(); ?>" />
 

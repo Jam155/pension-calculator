@@ -196,4 +196,15 @@ jQuery(document).ready(function() {
 		}
 
 	});
+
+	jQuery('#addContribution').on('click', function(e) {
+
+		e.preventDefault();
+		e.stopPropagation();
+
+		var index = jQuery('.contributions .contribution').length;
+
+		jQuery('.contributions').append("<div class='contribution'><input type='date' name='contributions[" + length + "][date]' /><!----><input type='number' name='contributions[" + length + "][monthly]' /></div>");
+
+	});
 })
