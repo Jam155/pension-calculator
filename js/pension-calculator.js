@@ -1,3 +1,6 @@
+
+var contributions = new Array();
+
 var getAge = function() {
 
 	var age = jQuery('input[name=age]').val();
@@ -36,6 +39,22 @@ var getComPrinciple = function(years) {
 	return total;
 
 
+
+}
+
+var getContributions = function() {
+
+	var contributionsHolder = jQuery('.contributions');
+	contributionsHolder.find('.contribution').each(function(index) {
+
+		var date = jQuery(this).find('input[type=date]').val();
+		var amount = jQuery(this).find('input[type=number]').val();
+
+		contributions.push(new Contribution(date, amount));
+
+	});
+
+	contributions.sort(Contribution.compare);
 
 }
 
@@ -172,6 +191,7 @@ var getLabels = function() {
 }
 
 jQuery(document).ready(function() {
+	getContributions();
 	var ctx = document.getElementById("chart");
 	console.log(ctx);
 	var pensionChart = new Chart(ctx, {

@@ -8,7 +8,7 @@ class Contribution {
 
 	}
 
-	public static compare(a, b) {
+	static compare(a, b) {
 
 		if (a.date < b.date) {
 
