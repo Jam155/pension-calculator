@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<script src="node_modules/jquery/dist/jquery.js"></script>
 		<script src="node_modules/chart.js/dist/Chart.bundle.js"></script>
+		<script src="js/classes/contribution.js"></script>
 		<script src="js/pension-calculator.js"></script>
 
 	</head>
@@ -23,7 +24,7 @@
 
 				<?php var_dump($_REQUEST); ?>
 
-				<form>
+				<form method="post">
 
 					First Name:<br />
 					<input type="text" name="firstname" value="<?php echo getFirstName(); ?>" />
