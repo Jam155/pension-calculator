@@ -1,5 +1,7 @@
 
 var contributions = new Array();
+var currentContribution = -1;
+var currentCompare = 0;
 
 var getAge = function() {
 
@@ -60,9 +62,39 @@ var getContributions = function() {
 
 var getMonthlyAmount = function(date) {
 
-	var contributions = jQuery('.contribution');
+	var contribution;
 
-	console.log(contributions);
+	if (contributions.length > currentCompare) {
+	
+		contribution = contributions[currentCompare];
+
+		if (contribution.date <= date) {
+
+			currentCompare++;
+			currentContribution++
+
+		}
+
+	}
+
+	var taxRebate = getTaxRebate();
+	var empCont = getEmployerContributions();
+	var monthlyAmount = 0;
+
+	if (currentContribution > -1) {
+
+		contribution = contributions[currentContribution];
+		monthlyAmount = contribution.amount / ( 1 - taxRebate);
+	}
+
+	monthlyAmount += empCont;
+	return monthlyAmount;
+
+	//var contributions = jQuery('.contribution');
+
+
+
+	/*console.log(contributions);
 
 	var monthlyAmount = jQuery(contributions[0]).find('input[name="contributions[0][monthly]"]').val();
 	var startDate = jQuery(contributions[0]).find('input[name="contributions[0][date]"]').val();
@@ -81,7 +113,7 @@ var getMonthlyAmount = function(date) {
 
 		monthlyAmount = 0;
 
-	}
+	}*/
 
 	return monthlyAmount;
 
@@ -224,7 +256,7 @@ jQuery(document).ready(function() {
 
 		var index = jQuery('.contributions .contribution').length;
 
-		jQuery('.contributions').append("<div class='contribution'><input type='date' name='contributions[" + length + "][date]' /><!----><input type='number' name='contributions[" + length + "][monthly]' /></div>");
+		jQuery('.contributions').append("<div class='contribution'><input type='date' name='contributions[" + index + "][date]' /><!----><input type='number' name='contributions[" + index + "][monthly]' /></div>");
 
 	});
 })
