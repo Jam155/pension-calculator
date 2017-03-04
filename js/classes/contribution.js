@@ -1,10 +1,11 @@
 
 class Contribution {
 
-	constructor(date, amount) {
+	constructor(date, amount, type) {
 
 		this.date = new Date(date);
 		this.amount = amount;
+		this.type = type;
 
 	}
 

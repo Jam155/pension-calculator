@@ -51,8 +51,9 @@ var getContributions = function() {
 
 		var date = jQuery(this).find('input[type=date]').val();
 		var amount = jQuery(this).find('input[type=number]').val();
+		var type = jQuery(this).find('select').val();
 
-		contributions.push(new Contribution(date, amount));
+		contributions.push(new Contribution(date, amount, type));
 
 	});
 
@@ -256,7 +257,7 @@ jQuery(document).ready(function() {
 
 		var index = jQuery('.contributions .contribution').length;
 
-		jQuery('.contributions').append("<div class='contribution'><input type='date' name='contributions[" + index + "][date]' /><!----><input type='number' name='contributions[" + index + "][monthly]' /></div>");
+		jQuery('.contributions').append("<div class='contribution'><input type='date' name='contributions[" + index + "][date]' /><!----><input type='number' name='contributions[" + index + "][monthly]' /><select name='contributions[" + index + "][type]'><option>Monthly</option><option>Single</option></div>");
 
 	});
 })

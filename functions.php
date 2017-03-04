@@ -11,7 +11,13 @@
 				<div class="contribution">
 
 					<input type="date" name="contributions[<?php echo $i; ?>][date]" value="<?php echo $contribution['date'] ?>"/><!--
-					--><input type="number" name="contributions[<?php echo $i; ?>][monthly]" value="<?php echo $contribution['monthly']; ?>" />
+					--><input type="number" name="contributions[<?php echo $i; ?>][monthly]" value="<?php echo $contribution['monthly']; ?>" /><!--
+					--><select name="contributions[<?php echo $i; ?>][type]">
+
+						<option <?php echo $contribution['type'] == 'Monthly' ? 'selected' : ''; ?>>Monthly</option>
+						<option <?php echo $contribution['type'] == 'Single' ? 'selected' : ''; ?>>Single</option>
+
+					</select>
 
 				</div>
 
@@ -22,7 +28,11 @@
 			<div class="contribution">
 
 				<input type="date" name="contributions[0][date]" value="" /><!--
-				--><input type="number" name="contributions[0][monthly]" value="" />
+				--><input type="number" name="contributions[0][monthly]" value="" /><!--
+				--><select>
+					<option selected>Monthly</option>
+					<option>Single</option>
+				</select>
 
 			</div>
 
