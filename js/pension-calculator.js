@@ -85,7 +85,14 @@ var getMonthlyAmount = function(date) {
 	if (currentContribution > -1) {
 
 		contribution = contributions[currentContribution];
-		monthlyAmount = contribution.amount / ( 1 - taxRebate);
+
+		monthlyAmount = parseFloat( contribution.amount );
+
+		if (monthlyAmount > 0) {
+			
+			monthlyAmount = monthlyAmount / ( 1 - taxRebate);
+
+		}
 	}
 
 	monthlyAmount += empCont;
@@ -172,6 +179,9 @@ var getInterestRate = function() {
 
 var getValue = function(years, monthlyAmount) {
 
+	currentContribution = -1;
+	currentCompare = 0;
+
 	var today = new Date();
 	var currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
 	console.log(currentDate);
@@ -185,7 +195,7 @@ var getValue = function(years, monthlyAmount) {
 	var interestRate = getInterestRate();
 
 	for (var i = 0; i < months; i++) {
-
+		
 		currentDate.setMonth(currentDate.getMonth() + 1);
 		amount = parseFloat(amount * getMonthlyInterestRate()) + parseFloat(getMonthlyAmount(currentDate));
 
