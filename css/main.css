@@ -15,8 +15,8 @@ body {
   body .form input, body .form select {
     display: block;
     width: 100%; }
-  body .form .contribution input {
+  body .form .contribution input, body .form .contribution select {
     display: inline-block;
-    width: 50%; }
+    width: 33.3333%; }
 
 /*# sourceMappingURL=main.css.map */

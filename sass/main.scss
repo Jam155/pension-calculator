@@ -42,10 +42,14 @@ body {
 
 		}
 
-		.contribution input {
+		.contribution {
+		
+			input, select {
 
-			display: inline-block;
-			width: 50%;
+				display: inline-block;
+				width: 33.3333%;
+
+			}
 
 		}
 
